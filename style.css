@@ -18,6 +18,9 @@
     
 }
 
+body{
+    background-color: #fff;
+}
 .nav:hover{
     opacity: 1;
 }
