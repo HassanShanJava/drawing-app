@@ -80,22 +80,16 @@ const canvas = document.querySelector("#canvas");
       return;
     }
     
-    if(is_touch_device){
-        ctx.lineWidth = 10;
-        ctx.lineCap = "round";
-        ctx.lineTo(e.touches?.[0].pageX,e.touches?.[0].pageY);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(e.touches?.[0].pageX,e.touches?.[0].pageY);   
-        return; 
-    }
-
+    
     ctx.lineWidth = 10;
     ctx.lineCap = "round";
     ctx.lineTo(e.clientX, e.clientY);
+    ctx.lineTo(e.touches?.[0].pageX,e.touches?.[0].pageY);
+    
     ctx.stroke();
     ctx.beginPath();
     ctx.moveTo(e.clientX,e.clientY);
+    ctx.moveTo(e.touches?.[0].pageX,e.touches?.[0].pageY);   
   }
 
   canvas.addEventListener("mousedown", startPosition);
